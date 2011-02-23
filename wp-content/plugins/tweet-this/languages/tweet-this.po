@@ -1,0 +1,1264 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Tweet This 1.8.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-21 07:00-0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Richard X. Thripp <richardxthripp@thripp.com>\n"
+"Language-Team: Richard X. Thripp <richardxthripp@thripp.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: tweet-this.php:628
+#: tweet-this.php:1064
+#: tweet-this.php:1473
+#: tweet-this.php:1474
+#: tweet-this.php:2352
+#: lib/tt-options.php:421
+msgid "Tweet This Post"
+msgstr ""
+
+#: tweet-this.php:629
+#: tweet-this.php:1484
+#: tweet-this.php:1486
+#: tweet-this.php:2360
+#: lib/tt-options.php:692
+msgid "Plurk This Post"
+msgstr ""
+
+#: tweet-this.php:630
+#: tweet-this.php:889
+#: tweet-this.php:1492
+#: tweet-this.php:1493
+#: tweet-this.php:2364
+#: tweet-this.php:2366
+#: lib/tt-options.php:712
+#: lib/tt-options.php:719
+msgid "Post to Bebo"
+msgstr ""
+
+#: tweet-this.php:631
+#: tweet-this.php:1499
+#: tweet-this.php:1500
+#: tweet-this.php:2369
+#: lib/tt-options.php:732
+msgid "Buzz This Post"
+msgstr ""
+
+#: tweet-this.php:632
+#: tweet-this.php:907
+#: tweet-this.php:1506
+#: tweet-this.php:1508
+#: tweet-this.php:2373
+#: tweet-this.php:2374
+#: lib/tt-options.php:752
+#: lib/tt-options.php:759
+msgid "Post to Delicious"
+msgstr ""
+
+#: tweet-this.php:633
+#: tweet-this.php:1514
+#: tweet-this.php:1515
+#: tweet-this.php:2378
+#: lib/tt-options.php:772
+msgid "Digg This Post"
+msgstr ""
+
+#: tweet-this.php:634
+#: tweet-this.php:925
+#: tweet-this.php:1521
+#: tweet-this.php:1522
+#: tweet-this.php:2382
+#: tweet-this.php:2383
+#: lib/tt-options.php:792
+#: lib/tt-options.php:799
+msgid "Post to Diigo"
+msgstr ""
+
+#: tweet-this.php:635
+#: tweet-this.php:934
+#: tweet-this.php:1528
+#: tweet-this.php:1530
+#: tweet-this.php:2387
+#: tweet-this.php:2388
+#: lib/tt-options.php:812
+#: lib/tt-options.php:819
+msgid "Post to Facebook"
+msgstr ""
+
+#: tweet-this.php:636
+#: tweet-this.php:943
+#: tweet-this.php:1536
+#: tweet-this.php:1537
+#: tweet-this.php:2392
+#: tweet-this.php:2393
+#: lib/tt-options.php:832
+#: lib/tt-options.php:839
+msgid "Post to FriendFeed"
+msgstr ""
+
+#: tweet-this.php:637
+#: tweet-this.php:952
+#: tweet-this.php:1543
+#: tweet-this.php:1545
+#: tweet-this.php:2396
+#: tweet-this.php:2397
+#: lib/tt-options.php:852
+#: lib/tt-options.php:859
+msgid "Post to Google Buzz"
+msgstr ""
+
+#: tweet-this.php:638
+#: tweet-this.php:961
+#: tweet-this.php:1551
+#: tweet-this.php:1553
+#: tweet-this.php:2401
+#: tweet-this.php:2402
+#: lib/tt-options.php:872
+#: lib/tt-options.php:879
+msgid "Send Gmail"
+msgstr ""
+
+#: tweet-this.php:639
+#: tweet-this.php:971
+#: tweet-this.php:1559
+#: tweet-this.php:1561
+#: tweet-this.php:2406
+#: tweet-this.php:2407
+#: lib/tt-options.php:892
+#: lib/tt-options.php:899
+msgid "Post to LinkedIn"
+msgstr ""
+
+#: tweet-this.php:640
+#: tweet-this.php:981
+#: tweet-this.php:1567
+#: tweet-this.php:1569
+#: tweet-this.php:2411
+#: tweet-this.php:2412
+#: lib/tt-options.php:912
+msgid "Mixx This Post"
+msgstr ""
+
+#: tweet-this.php:641
+#: tweet-this.php:990
+#: tweet-this.php:1575
+#: tweet-this.php:1577
+#: tweet-this.php:2415
+#: tweet-this.php:2417
+#: lib/tt-options.php:932
+#: lib/tt-options.php:939
+msgid "Post to MySpace"
+msgstr ""
+
+#: tweet-this.php:642
+#: tweet-this.php:1583
+#: tweet-this.php:1584
+#: tweet-this.php:2420
+#: lib/tt-options.php:952
+msgid "Ping This Post"
+msgstr ""
+
+#: tweet-this.php:643
+#: tweet-this.php:1008
+#: tweet-this.php:1590
+#: tweet-this.php:1592
+#: tweet-this.php:2424
+#: tweet-this.php:2425
+#: lib/tt-options.php:972
+#: lib/tt-options.php:979
+msgid "Post to Reddit"
+msgstr ""
+
+#: tweet-this.php:644
+#: tweet-this.php:1017
+#: tweet-this.php:1598
+#: tweet-this.php:1600
+#: tweet-this.php:2429
+#: tweet-this.php:2430
+#: lib/tt-options.php:992
+#: lib/tt-options.php:999
+msgid "Post to Slashdot"
+msgstr ""
+
+#: tweet-this.php:645
+#: tweet-this.php:1026
+#: tweet-this.php:1606
+#: tweet-this.php:1608
+#: tweet-this.php:2434
+#: tweet-this.php:2435
+#: lib/tt-options.php:1012
+#: lib/tt-options.php:1019
+msgid "Post to Squidoo"
+msgstr ""
+
+#: tweet-this.php:646
+#: tweet-this.php:1614
+#: tweet-this.php:1616
+#: tweet-this.php:2439
+#: lib/tt-options.php:1031
+msgid "Stumble This Post"
+msgstr ""
+
+#: tweet-this.php:647
+#: tweet-this.php:1043
+#: tweet-this.php:1622
+#: tweet-this.php:1624
+#: tweet-this.php:2443
+#: tweet-this.php:2444
+#: lib/tt-options.php:1051
+#: lib/tt-options.php:1058
+msgid "Post to Technorati"
+msgstr ""
+
+#: tweet-this.php:650
+#: tweet-this.php:875
+#: tweet-this.php:2353
+#: lib/tt-options.php:428
+msgid "Post to Twitter"
+msgstr ""
+
+#: tweet-this.php:651
+#: tweet-this.php:882
+#: tweet-this.php:2362
+#: lib/tt-options.php:699
+msgid "Post to Plurk"
+msgstr ""
+
+#: tweet-this.php:652
+#: tweet-this.php:898
+#: tweet-this.php:2370
+#: lib/tt-options.php:739
+msgid "Post to Yahoo Buzz"
+msgstr ""
+
+#: tweet-this.php:653
+#: tweet-this.php:916
+#: tweet-this.php:2379
+#: lib/tt-options.php:779
+msgid "Post to Digg"
+msgstr ""
+
+#: tweet-this.php:654
+#: lib/tt-options.php:919
+msgid "Post to Mixx"
+msgstr ""
+
+#: tweet-this.php:655
+#: tweet-this.php:999
+#: tweet-this.php:2421
+#: lib/tt-options.php:959
+msgid "Post to Ping.fm"
+msgstr ""
+
+#: tweet-this.php:656
+#: tweet-this.php:1034
+#: tweet-this.php:2440
+#: lib/tt-options.php:1038
+msgid "Post to StumbleUpon"
+msgstr ""
+
+#: tweet-this.php:1078
+msgid " character(s) remaining"
+msgstr ""
+
+#: tweet-this.php:1119
+#: tweet-this.php:2596
+#: tweet-this.php:2712
+#: tweet-this.php:3469
+#: tweet-this.php:3473
+msgid "Tweet This"
+msgstr ""
+
+#: tweet-this.php:1126
+#, php-format
+msgid "Please enter your Twitter OAuth keys under <a target=\"_blank\" href=\"%1$s/wp-admin/options-general.php%2$s\">Settings &gt; Tweet This &gt; Automatic Tweeting</a>, or uncheck \"Enable automatic tweeting on posts\" and \"Enable automatic tweeting on pages\" to remove this box."
+msgstr ""
+
+#: tweet-this.php:1134
+msgid "Cannot tweet a private post."
+msgstr ""
+
+#: tweet-this.php:1146
+msgid "Date:"
+msgstr ""
+
+#: tweet-this.php:1149
+msgid "Tweet published"
+msgstr ""
+
+#: tweet-this.php:1153
+#, php-format
+msgid "Tweet failed. Twitter returned <font color=\"red\">HTTP %1$s</font>. Check your OAuth settings and re-save this post to try again."
+msgstr ""
+
+#: tweet-this.php:1165
+msgid "character(s)&nbsp;remaining"
+msgstr ""
+
+#: tweet-this.php:1181
+msgid "Send to Twitter"
+msgstr ""
+
+#: tweet-this.php:1183
+msgid "again"
+msgstr ""
+
+#: tweet-this.php:1193
+#: tweet-this.php:1240
+#: tweet-this.php:1266
+#: tweet-this.php:2346
+#: lib/tt-options.php:535
+msgid "New blog post"
+msgstr ""
+
+#: tweet-this.php:1468
+msgid "URL(s) flushed."
+msgstr ""
+
+#: tweet-this.php:1637
+msgid "saved."
+msgstr ""
+
+#: tweet-this.php:1698
+msgid "None"
+msgstr ""
+
+#: tweet-this.php:1783
+msgid "Editable text box"
+msgstr ""
+
+#: tweet-this.php:1785
+msgid "Size"
+msgstr ""
+
+#: tweet-this.php:1817
+#, php-format
+msgid "(%1$s Characters)"
+msgstr ""
+
+#: tweet-this.php:1908
+msgid "Authentication succeeded, please save."
+msgstr ""
+
+#: tweet-this.php:1911
+msgid "Authentication failed, make sure your keys are entered correctly."
+msgstr ""
+
+#: tweet-this.php:1914
+msgid "Authentication failed, please copy and paste all four keys."
+msgstr ""
+
+#: tweet-this.php:2125
+#: tweet-this.php:2128
+msgid "Sending you to Twitter..."
+msgstr ""
+
+#: tweet-this.php:2130
+msgid "Click here if nothing happens."
+msgstr ""
+
+#: tweet-this.php:2138
+msgid "Cannot authenticate you as WordPress admin."
+msgstr ""
+
+#: tweet-this.php:2142
+msgid "Cannot publish a blank tweet."
+msgstr ""
+
+#: tweet-this.php:2163
+msgid "Tweet published to Twitter successfully."
+msgstr ""
+
+#: tweet-this.php:2170
+#, php-format
+msgid "Tweet failed: Twitter returned HTTP %1$s."
+msgstr ""
+
+#: tweet-this.php:2174
+msgid "Tweet failed: OAuth key(s) missing."
+msgstr ""
+
+#: tweet-this.php:2186
+#: tweet-this.php:2239
+msgid "Cannot authenticate you as a WordPress admin."
+msgstr ""
+
+#: tweet-this.php:2190
+msgid "No tweet text to preview."
+msgstr ""
+
+#: tweet-this.php:2196
+msgid ", or more if your tweet contains URLs."
+msgstr ""
+
+#: tweet-this.php:2204
+msgid "You can add "
+msgstr ""
+
+#: tweet-this.php:2206
+msgid " character(s)"
+msgstr ""
+
+#: tweet-this.php:2212
+msgid "You must remove "
+msgstr ""
+
+#: tweet-this.php:2213
+#: tweet-this.php:2219
+msgid " character(s)."
+msgstr ""
+
+#: tweet-this.php:2218
+msgid "Your final tweet will contain "
+msgstr ""
+
+#: tweet-this.php:2243
+msgid "No tweet text to schedule."
+msgstr ""
+
+#: tweet-this.php:2247
+msgid "Tweet not scheduled because it is <strong>"
+msgstr ""
+
+#: tweet-this.php:2248
+msgid "</strong> characters."
+msgstr ""
+
+#: tweet-this.php:2252
+msgid "Tweet not scheduled because provided date is invalid or in the past."
+msgstr ""
+
+#: tweet-this.php:2258
+msgid "Created database table `<strong>"
+msgstr ""
+
+#: tweet-this.php:2260
+msgid "</strong>` successfully."
+msgstr ""
+
+#: tweet-this.php:2272
+msgid "Tweet <strong>#"
+msgstr ""
+
+#: tweet-this.php:2273
+msgid "</strong>, added <strong>"
+msgstr ""
+
+#: tweet-this.php:2275
+msgid "</strong>, is also scheduled for <strong>"
+msgstr ""
+
+#: tweet-this.php:2277
+msgid "</strong>. Please change dates."
+msgstr ""
+
+#: tweet-this.php:2295
+msgid "Tweet "
+msgstr ""
+
+#: tweet-this.php:2314
+msgid "The file that constructs the options form, /tweet-this/lib/tt-options.php, is missing."
+msgstr ""
+
+#: tweet-this.php:2595
+msgid "Tweet This Options"
+msgstr ""
+
+#: tweet-this.php:2603
+#: tweet-this.php:2604
+msgid "Write Tweet"
+msgstr ""
+
+#: tweet-this.php:2620
+msgid "Sending..."
+msgstr ""
+
+#: tweet-this.php:2629
+msgid "Scheduling..."
+msgstr ""
+
+#: tweet-this.php:2639
+msgid "Generating preview..."
+msgstr ""
+
+#: tweet-this.php:2665
+#, php-format
+msgid "<a target=\"_blank\" href=\"http://richardxthripp.thripp.com/tweet-this/\">Tweet This</a> <a target=\"_blank\" href=\"http://richardxthripp.thripp.com/tweet-this-version-history/\">v%1$s</a>: Write Tweet"
+msgstr ""
+
+#: tweet-this.php:2685
+msgid "</strong> not deleted because you could not be "
+msgstr ""
+
+#: tweet-this.php:2687
+msgid "Scheduled tweet <strong>#"
+msgstr ""
+
+#: tweet-this.php:2691
+msgid "not be deleted because it does not exist."
+msgstr ""
+
+#: tweet-this.php:2694
+msgid "This will create a new tweet in <a target=\"_blank\" href=\"http://twitter.com\">Twitter</a> using your OAuth connection."
+msgstr ""
+
+#: tweet-this.php:2706
+msgid " character(s) before URL shortening."
+msgstr ""
+
+#: tweet-this.php:2713
+msgid "Click to publish Twitter status update."
+msgstr ""
+
+#: tweet-this.php:2717
+msgid "Preview This"
+msgstr ""
+
+#: tweet-this.php:2718
+msgid "Click here if your Tweet contains URLs."
+msgstr ""
+
+#: tweet-this.php:2721
+msgid "Schedule This"
+msgstr ""
+
+#: tweet-this.php:2722
+msgid "Click to schedule future Twitter status update."
+msgstr ""
+
+#: tweet-this.php:2752
+msgid "because your chosen URL service requires an API key which you have not provided in the Tweet This options"
+msgstr ""
+
+#: tweet-this.php:2757
+msgid "your custom URL service"
+msgstr ""
+
+#: tweet-this.php:2760
+#, php-format
+msgid "<p>Welcome to the Write Tweet page! The current server date is approximately <strong><span id=\"servertime\"></span></strong>.</p><p>URLs will be shortened with <strong>%3$s</strong> if your tweet is over 140 characters%4$s. You can update URL services <a target=\"_blank\" href=\"%1$s/wp-admin/options-general.php%5$s\">here</a>.</p><p>Click \"Preview This\" to see exactly what will be published to your Twitter account with an accurate character count.</p><p>Click \"Schedule This\" to schedule the tweet for the date specified in the box to the right. This defaults to one hour after you loaded this page. Make sure to use \"YYYY-MM-DD&nbsp;HH:mm:SS\" format. If you have not used tweet scheduling before, a table named `%2$s` will be created in your database.</p><p>An HTTP 401 error indicates incorrect OAuth keys. An HTTP 403 error can mean that you have exceeded 140 characters or that you are trying to publish a duplicate tweet. <a target=\"_blank\" href=\"http://apiwiki.twitter.com/HTTP-Response-Codes-and-Errors\">Click here</a> for more information on HTTP response codes.</p><p>Note that scheduled tweets will be triggered up to ten minutes AFTER the scheduled time, and then only posted when someone loads a page on your blog. The last 100 scheduled tweets will be listed below from newest to oldest in order of date scheduled. You will have to reload the page to update the list. \"Status\" shows \"future\" for scheduled tweets, \"publish\" for successfully published tweets, and \"fail\" for scheduled tweets that could not be published. Deleting a published tweet from the list will not delete the tweet on Twitter.</p>"
+msgstr ""
+
+#: tweet-this.php:2803
+msgid "ID"
+msgstr ""
+
+#: tweet-this.php:2804
+msgid "Scheduled Date"
+msgstr ""
+
+#: tweet-this.php:2806
+msgid "Tweet Text"
+msgstr ""
+
+#: tweet-this.php:2808
+msgid "Status"
+msgstr ""
+
+#: tweet-this.php:2809
+msgid "Delete"
+msgstr ""
+
+#: tweet-this.php:2824
+msgid "Tweet ID:"
+msgstr ""
+
+#: tweet-this.php:2830
+msgid "HTTP error:"
+msgstr ""
+
+#: tweet-this.php:2846
+msgid "Are you sure "
+msgstr ""
+
+#: tweet-this.php:2849
+msgid "delete"
+msgstr ""
+
+#: tweet-this.php:2872
+msgid "Resetting Tweet This options. Please wait..."
+msgstr ""
+
+#: tweet-this.php:2879
+msgid "All Tweet This options reset successfully. URL cache flushed."
+msgstr ""
+
+#: tweet-this.php:2898
+msgid "Resetting all Tweet This options except API keys. Please wait..."
+msgstr ""
+
+#: tweet-this.php:2906
+#: lib/tt-options.php:39
+msgid "All Tweet This options reset except API keys. URL cache flushed."
+msgstr ""
+
+#: tweet-this.php:2916
+msgid "successfully."
+msgstr ""
+
+#: tweet-this.php:2921
+msgid "Are you sure? NOTE: You will have to delete the "
+msgstr ""
+
+#: tweet-this.php:2928
+msgid "COMPLETELY UNINSTALL AND DEACTIVATE TWEET THIS"
+msgstr ""
+
+#: tweet-this.php:2930
+msgid "You can reactivate later, but you will lose your settings."
+msgstr ""
+
+#: tweet-this.php:2933
+msgid "Cancel and return to options page"
+msgstr ""
+
+#: tweet-this.php:2935
+msgid "You will go back to the options form."
+msgstr ""
+
+#: tweet-this.php:2941
+msgid "Uninstallation aborted."
+msgstr ""
+
+#: tweet-this.php:2947
+msgid "Uninstalling and deactivating Tweet This. Please wait 3 seconds..."
+msgstr ""
+
+#: tweet-this.php:2950
+msgid "Uninstalling Tweet This. Cannot deactivate because you are below WP 2.5. Please wait 3 seconds..."
+msgstr ""
+
+#: tweet-this.php:2965
+msgid "Uninstallation aborted because tweet_this_import_key was not set to \"uninstall2\", which suggests tampering."
+msgstr ""
+
+#: tweet-this.php:2983
+msgid "Importing Tweet This options. Please wait..."
+msgstr ""
+
+#: tweet-this.php:2988
+msgid "There is something wrong with the provided options. Import aborted."
+msgstr ""
+
+#: tweet-this.php:2994
+msgid "Tweet This options imported successfully. URL cache flushed."
+msgstr ""
+
+#: tweet-this.php:3214
+#, php-format
+msgid "Twitter links powered by <a target=\"_blank\" href=\"http://richardxthripp.thripp.com/tweet-this/\">Tweet This v%1$s</a>, a <a href=\"http://www.amazon.com/exec/obidos/redirect-home/brilliaphotog-20\">WordPress</a> plugin for <a href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=richardxthripp@thripp.com&amp;currency_code=USD&amp;amount=&amp;return=&amp;item_name=Donations+for+Tweet+This+plugin\">Twitter</a>."
+msgstr ""
+
+#: tweet-this.php:3293
+msgid "Displays your latest Twitter updates. Part of the Tweet This plugin."
+msgstr ""
+
+#: tweet-this.php:3296
+#: tweet-this.php:3303
+#: tweet-this.php:3391
+msgid "Twitter Updates"
+msgstr ""
+
+#: tweet-this.php:3359
+msgid "HTTP 401 Error: Please make sure the Twitter account is <a href=\"http://help.twitter.com/forums/10711/entries/14016\" target=\"_blank\">public</a>."
+msgstr ""
+
+#: tweet-this.php:3364
+msgid "Error: Twitter did not respond. Please wait a few minutes and refresh this page."
+msgstr ""
+
+#: tweet-this.php:3400
+msgid "Title:"
+msgstr ""
+
+#: tweet-this.php:3405
+msgid "Twitter username:"
+msgstr ""
+
+#: tweet-this.php:3411
+msgid "Show latest "
+msgstr ""
+
+#: tweet-this.php:3418
+msgid "tweets"
+msgstr ""
+
+#: tweet-this.php:3424
+msgid "Hide replies"
+msgstr ""
+
+#: tweet-this.php:3427
+msgid "Text between tweet and time:"
+msgstr ""
+
+#: lib/tt-options.php:23
+msgid "WARNING: TT_OVERRIDE_OPTIONS is set to true in the tt-config.php file in the tweet-this directory. Any options set here will be disregarded; only the options specified in the tt-config.php will be used. Please set TT_OVERRIDE_OPTIONS to false, or set TT_HIDE_MENU to true to remove the options form entirely."
+msgstr ""
+
+#: lib/tt-options.php:34
+msgid "All Tweet This options reset. URL cache flushed."
+msgstr ""
+
+#: lib/tt-options.php:46
+msgid "Tweet This options imported. URL cache flushed."
+msgstr ""
+
+#: lib/tt-options.php:63
+msgid "Testing..."
+msgstr ""
+
+#: lib/tt-options.php:139
+#, php-format
+msgid "<a target=\"_blank\" href=\"http://richardxthripp.thripp.com/tweet-this/\">Tweet This</a> <a target=\"_blank\" href=\"http://richardxthripp.thripp.com/tweet-this-version-history/\">v%1$s</a> Options"
+msgstr ""
+
+#: lib/tt-options.php:146
+msgid "WARNING: Please deactivate Tweet This and upgrade to WordPress 1.5 or newer. Tweet This does not have exception handling for versions of WordPress below 1.5 so it will cause fatal errors on your blog. If you ARE using WordPress 1.5 or newer, note that this message is only being shown because $GLOBALS['wp_version'] is reporting a number below 1.5."
+msgstr ""
+
+#: lib/tt-options.php:156
+msgid "WARNING: Automatic Tweeting requires WordPress 2.7 or newer. You can still enter your OAuth keys under \"Automatic Tweeting\" so that you can publish or schedule tweets from the \"Write Tweet\" page, but do NOT check any of the boxes as they may cause tweets to be published even when \"Send to Twitter\" is unchecked on the Write Post screen."
+msgstr ""
+
+#: lib/tt-options.php:166
+msgid "WARNING: Please upgrade to PHP 5.0.0 or newer. Tweet This uses OAuth libraries which require PHP 5. You can still use Tweet This, but do NOT enter your OAuth keys under \"Automatic Tweeting\" or check any of the boxes as they will cause fatal errors on your blog."
+msgstr ""
+
+#: lib/tt-options.php:177
+msgid "Allow_url_fopen and Curl are disabled in your PHP configuration. All URLs will be served locally, regardless of your chosen URL service. To fix this, try adding these lines to your <a href=\"http://www.washington.edu/computing/web/publishing/php-ini.html\">php.ini file</a>: `extension = curl.so` and `allow_url_fopen = on`."
+msgstr ""
+
+#: lib/tt-options.php:186
+#, php-format
+msgid "You have <strong>%1$s</strong> published posts and pages. Tweet This has short URLs for <strong>%2$s</strong> of them. URLs are cached as needed."
+msgstr ""
+
+#: lib/tt-options.php:195
+msgid "URL Service to use on posts and auto-tweets:"
+msgstr ""
+
+#: lib/tt-options.php:210
+msgid "Local, i.e."
+msgstr ""
+
+#: lib/tt-options.php:214
+#: lib/tt-options.php:239
+msgid "Custom"
+msgstr ""
+
+#: lib/tt-options.php:216
+msgid "URL service to use on the Write Tweet page:"
+msgstr ""
+
+#: lib/tt-options.php:235
+msgid "Same as above"
+msgstr ""
+
+#: lib/tt-options.php:243
+msgid "Adjix Partner ID (<strong>Mandatory</strong>)"
+msgstr ""
+
+#: lib/tt-options.php:252
+#, php-format
+msgid "Use shorter Ad.vu URLs (%1$s Characters)"
+msgstr ""
+
+#: lib/tt-options.php:258
+msgid "Bit.ly Username (MANDATORY)"
+msgstr ""
+
+#: lib/tt-options.php:263
+msgid "Bit.ly API Key (MANDATORY)"
+msgstr ""
+
+#: lib/tt-options.php:272
+#, php-format
+msgid "Use shorter J.mp URLs (%1$s Characters)"
+msgstr ""
+
+#: lib/tt-options.php:278
+msgid "URL of API"
+msgstr ""
+
+#: lib/tt-options.php:285
+msgid "The URL service must allow HTTP GET requests, meaning that the long URL is passed to the API as a parameter in the URL itself. HTTP POST is not supported. The output of the API must be a plain-text short URL including the http prefix, <a href=\"http://th8.us/api.php?url=http://richardxthripp.thripp.com/tweet-this/\">like this</a>. The only valid variable is \"[LONGURL]\". Please check your blog after specifying the API's URL because its validity will not be confirmed. <a href=\"http://richardxthripp.thripp.com/tweet-this-custom-url-services\">A list of various URL shortening services is available</a>, including the seven removed in Tweet This 1.6. Note that Tweet This requests a short URL for each post on your blog as your posts are viewed, even if they are never tweeted. This will add hundreds of URLs to the service's database if you have hundreds of posts. Caching will prevent the same URLs from being requested again and again."
+msgstr ""
+
+#: lib/tt-options.php:306
+msgid "SnipURL Username (<strong>Mandatory</strong>)"
+msgstr ""
+
+#: lib/tt-options.php:311
+msgid "SnipURL API Key (<strong>Mandatory</strong>)"
+msgstr ""
+
+#: lib/tt-options.php:325
+#, php-format
+msgid "SnipURL.com (%1$s Chars)"
+msgstr ""
+
+#: lib/tt-options.php:330
+#, php-format
+msgid "Snipr.com (%1$s Chars)"
+msgstr ""
+
+#: lib/tt-options.php:335
+#, php-format
+msgid "SnURL.com (%1$s Chars)"
+msgstr ""
+
+#: lib/tt-options.php:340
+#, php-format
+msgid "Sn.im (%1$s Chars)"
+msgstr ""
+
+#: lib/tt-options.php:345
+#, php-format
+msgid "Cl.lk (%1$s Chars)"
+msgstr ""
+
+#: lib/tt-options.php:351
+msgid "Su.pr Username (Optional)"
+msgstr ""
+
+#: lib/tt-options.php:356
+msgid "Su.pr API Key (Optional)"
+msgstr ""
+
+#: lib/tt-options.php:363
+msgid "Please note that <a href=\"http://th8.us/\">Th8.us</a> is owned by the creator of Tweet This and includes ads above your website in an iFrame (<a href=\"http://yd7ch.th8.us/\">example</a>). If you want your website removed from the Th8.us database, change URL services and email me at <a href=\"mailto:richardxthripp@thripp.com\">richardxthripp@thripp.com</a>."
+msgstr ""
+
+#: lib/tt-options.php:373
+msgid "Do not enable \"Use \"www.\" instead of \"http://\" in shortened URLs\" because Tweetburner does not work with the www subdomain; your URLs will just redirect to the Tweetburner home page."
+msgstr ""
+
+#: lib/tt-options.php:381
+msgid "For the editable text box, \"Link Text\" serves as the submit button's text. \"Tweet This Post\" will be used if it is set to \"[BLANK]\"."
+msgstr ""
+
+#: lib/tt-options.php:390
+msgid "Insert Twitter Tweet This links using:"
+msgstr ""
+
+#: lib/tt-options.php:397
+msgid "Web Links"
+msgstr ""
+
+#: lib/tt-options.php:398
+msgid "(<a href=\"http://twitter.com/home/?status=Tweet+This+Plugin+for+WordPress+http://bit.ly/bNL4WB\" target=\"_blank\">Example</a>)"
+msgstr ""
+
+#: lib/tt-options.php:403
+msgid "Share Links"
+msgstr ""
+
+#: lib/tt-options.php:404
+msgid "(<a href=\"http://twitter.com/share?url=http://richardxthripp.thripp.com/tweet-this/&text=Tweet+This+Plugin+for+WordPress&via=tweetthisplugin&related=richardxthripp%2Ctweetthisplugin\" target=\"_blank\">Example</a>)"
+msgstr ""
+
+#: lib/tt-options.php:409
+msgid "WEB Tweet Text (Can use # and @ symbols):"
+msgstr ""
+
+#: lib/tt-options.php:417
+msgid "WEB/SHARE Link Text or [BLANK] for none:"
+msgstr ""
+
+#: lib/tt-options.php:424
+msgid "WEB/SHARE Link Title Attribute or [BLANK] for none:"
+msgstr ""
+
+#: lib/tt-options.php:431
+msgid "SHARE Tweet Text (Before URL) or [BLANK] for none:"
+msgstr ""
+
+#: lib/tt-options.php:439
+msgid "SHARE Via Twitter User or [BLANK] for none:"
+msgstr ""
+
+#: lib/tt-options.php:447
+msgid "SHARE Related User(s) (2 max) or [BLANK] for none:"
+msgstr ""
+
+#: lib/tt-options.php:456
+msgid "Shortcodes available in Twitter and Extended Services text fields:"
+msgstr ""
+
+#: lib/tt-options.php:462
+msgid "Automatic Tweeting"
+msgstr ""
+
+#: lib/tt-options.php:466
+#, php-format
+msgid "<p><em>To use automatic tweeting, you must register an application with Twitter.</em></p><p><strong><em>Step 1</em></strong>: <a href=\"http://dev.twitter.com/apps/new\" target=\"_blank\"><strong>Click here</strong></a> to open the form in a new window and fill out the application as follows:</p><table border=\"3\" cellspacing=\"3\" cellpadding=\"3\"><tbody><tr><td>Application&nbsp;Name:&nbsp;&nbsp;</td><td><input type=\"text\" id=\"tto1\" value=\"%1$s\" onfocus=\"this.select()\" readonly=\"readonly\" size=\"50\" />&nbsp;&nbsp;</td><td>[OK&nbsp;to&nbsp;change]</td></tr><tr><td>Description:&nbsp;&nbsp;</td><td><input type=\"text\" id=\"tto2\" value=\"%2$s\" onfocus=\"this.select()\" readonly=\"readonly\" size=\"50\" />&nbsp;&nbsp;</td><td>[OK&nbsp;to&nbsp;change]</td></tr><tr><td>Application&nbsp;Website:&nbsp;&nbsp;</td><td><input type=\"text\" id=\"tto3\" value=\"%2$s\" onfocus=\"this.select()\" readonly=\"readonly\" size=\"50\" />&nbsp;&nbsp;</td><td>[OK&nbsp;to&nbsp;change]</td></tr><tr><td>Application&nbsp;Type:&nbsp;&nbsp;</td><td><input type=\"text\" id=\"tto4\" value=\"Browser\" onfocus=\"this.select()\" readonly=\"readonly\" size=\"50\" />&nbsp;&nbsp;</td><td>[the&nbsp;default]</td></tr><tr><td>Callback&nbsp;URL:&nbsp;&nbsp;</td><td><input type=\"text\" id=\"tto5\" value=\"%2$s\" onfocus=\"this.select()\" readonly=\"readonly\" size=\"50\" />&nbsp;&nbsp;</td><td>[OK&nbsp;to&nbsp;change]</td></tr><tr><td>Default&nbsp;Access&nbsp;type:&nbsp;&nbsp;</td><td><input type=\"text\" id=\"tto6\" value=\"Read &amp; Write\" onfocus=\"this.select()\" readonly=\"readonly\" size=\"50\" />&nbsp;&nbsp;</td><td>[<strong>NOT&nbsp;the&nbsp;default</strong>]</td></tr></tbody></table><p><strong><em>Step 2</em></strong>: Enter the CAPTCHA, click Register, and agree to the terms.</p><p><strong><em>Step 3</em></strong>: Copy and paste <strong>Consumer key</strong> and <strong>Consumer secret</strong> below.</p><p><font color=\"red\"><strong><em>Step 4</em></strong>: Click \"My Access Token\" on the right, and then, copy and paste <strong>Access Token</strong> and <strong>Access Token Secret</strong> below.</font></p><p><strong><em>Step 5</em></strong>: Click <strong>Test Twitter OAuth</strong> below. If you get \"Authentication succeeded\", click <strong>Save Options</strong> at the bottom.</p>"
+msgstr ""
+
+#: lib/tt-options.php:511
+msgid "Twitter Consumer Key"
+msgstr ""
+
+#: lib/tt-options.php:516
+msgid "Twitter Consumer Secret"
+msgstr ""
+
+#: lib/tt-options.php:521
+msgid "Twitter Access Token"
+msgstr ""
+
+#: lib/tt-options.php:526
+msgid "Twitter Access Token Secret"
+msgstr ""
+
+#: lib/tt-options.php:531
+msgid "Default Auto Tweet Text"
+msgstr ""
+
+#: lib/tt-options.php:539
+msgid "Test Twitter OAuth"
+msgstr ""
+
+#: lib/tt-options.php:545
+msgid "Enable automatic tweeting on posts"
+msgstr ""
+
+#: lib/tt-options.php:550
+msgid "Enable automatic tweeting on pages"
+msgstr ""
+
+#: lib/tt-options.php:555
+msgid "\"Send to Twitter\" defaults to checked on unpublished posts"
+msgstr ""
+
+#: lib/tt-options.php:560
+msgid "\"Send to Twitter\" defaults to checked on unpublished pages"
+msgstr ""
+
+#: lib/tt-options.php:563
+msgid "After entering your OAuth keys, \"Write Tweet\" will appear as a menu item under the \"Posts\" section (this may take two pageloads)."
+msgstr ""
+
+#: lib/tt-options.php:568
+msgid "Advanced Options"
+msgstr ""
+
+#: lib/tt-options.php:571
+msgid "Alignment of Links"
+msgstr ""
+
+#: lib/tt-options.php:576
+msgid "Left"
+msgstr ""
+
+#: lib/tt-options.php:580
+msgid "Right"
+msgstr ""
+
+#: lib/tt-options.php:584
+msgid "Center"
+msgstr ""
+
+#: lib/tt-options.php:585
+msgid "Image CSS Class"
+msgstr ""
+
+#: lib/tt-options.php:591
+msgid "Link CSS Class"
+msgstr ""
+
+#: lib/tt-options.php:597
+msgid "CSS to insert or [BLANK] for none. Use [IMG_CLASS] and [LINK_CLASS] for the variables above."
+msgstr ""
+
+#: lib/tt-options.php:608
+msgid "Insert Tweet This block before content (can be combined with below)."
+msgstr ""
+
+#: lib/tt-options.php:613
+msgid "Insert Tweet This block after content (can be combined with above)."
+msgstr ""
+
+#: lib/tt-options.php:618
+msgid "Pass shortened URLs to WordPress via the get_shortlink filter if the URL service is not set to Local.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(This will only add a rel=\"shortlink\" link to wp_head in WordPress 2.9.2 or earlier.)"
+msgstr ""
+
+#: lib/tt-options.php:626
+msgid "Only show Tweet This block when viewing single posts or pages."
+msgstr ""
+
+#: lib/tt-options.php:631
+msgid "Hide Tweet This block on pages (will override checkbox above)."
+msgstr ""
+
+#: lib/tt-options.php:636
+msgid "Hide Tweet This block on all feeds (RSS, RDF, Atom)."
+msgstr ""
+
+#: lib/tt-options.php:641
+msgid "Use \"www.\" instead of \"http://\" in shortened URLs."
+msgstr ""
+
+#: lib/tt-options.php:646
+msgid "Use full permalinks unless Tweet/Plurk Text exceeds 140 characters.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Full permalinks will not be used on automatic tweets.)"
+msgstr ""
+
+#: lib/tt-options.php:653
+msgid "Add target=\"_blank\" attribute to links so they open in new windows."
+msgstr ""
+
+#: lib/tt-options.php:658
+msgid "Add rel=\"nofollow\" attribute to links so search engines exclude them from page ranking."
+msgstr ""
+
+#: lib/tt-options.php:664
+msgid "Insert Tweet This message in footer."
+msgstr ""
+
+#: lib/tt-options.php:669
+msgid "Insert Amazon Associates ads to support Tweet This."
+msgstr ""
+
+#: lib/tt-options.php:670
+msgid "Some advanced options can only be set in the tt-config.php file in the tweet-this directory."
+msgstr ""
+
+#: lib/tt-options.php:676
+msgid "Extended Services"
+msgstr ""
+
+#: lib/tt-options.php:681
+msgid "Insert Plurk This"
+msgstr ""
+
+#: lib/tt-options.php:682
+msgid "Plurk Text"
+msgstr ""
+
+#: lib/tt-options.php:688
+#: lib/tt-options.php:708
+#: lib/tt-options.php:728
+#: lib/tt-options.php:748
+#: lib/tt-options.php:768
+#: lib/tt-options.php:788
+#: lib/tt-options.php:808
+#: lib/tt-options.php:828
+#: lib/tt-options.php:848
+#: lib/tt-options.php:868
+#: lib/tt-options.php:888
+#: lib/tt-options.php:908
+#: lib/tt-options.php:928
+#: lib/tt-options.php:948
+#: lib/tt-options.php:968
+#: lib/tt-options.php:988
+#: lib/tt-options.php:1008
+#: lib/tt-options.php:1027
+#: lib/tt-options.php:1047
+msgid "Link"
+msgstr ""
+
+#: lib/tt-options.php:694
+#: lib/tt-options.php:714
+#: lib/tt-options.php:734
+#: lib/tt-options.php:754
+#: lib/tt-options.php:774
+#: lib/tt-options.php:794
+#: lib/tt-options.php:814
+#: lib/tt-options.php:834
+#: lib/tt-options.php:854
+#: lib/tt-options.php:874
+#: lib/tt-options.php:894
+#: lib/tt-options.php:914
+#: lib/tt-options.php:934
+#: lib/tt-options.php:954
+#: lib/tt-options.php:974
+#: lib/tt-options.php:994
+#: lib/tt-options.php:1014
+#: lib/tt-options.php:1033
+#: lib/tt-options.php:1053
+msgid "Title"
+msgstr ""
+
+#: lib/tt-options.php:707
+msgid "Insert Bebo"
+msgstr ""
+
+#: lib/tt-options.php:727
+msgid "Insert Buzz This (Yahoo)"
+msgstr ""
+
+#: lib/tt-options.php:747
+msgid "Insert Delicious"
+msgstr ""
+
+#: lib/tt-options.php:767
+msgid "Insert Digg This"
+msgstr ""
+
+#: lib/tt-options.php:787
+msgid "Insert Diigo"
+msgstr ""
+
+#: lib/tt-options.php:807
+msgid "Insert Facebook"
+msgstr ""
+
+#: lib/tt-options.php:827
+msgid "Insert FriendFeed"
+msgstr ""
+
+#: lib/tt-options.php:847
+msgid "Insert Google Buzz"
+msgstr ""
+
+#: lib/tt-options.php:867
+msgid "Insert Gmail"
+msgstr ""
+
+#: lib/tt-options.php:887
+msgid "Insert LinkedIn"
+msgstr ""
+
+#: lib/tt-options.php:907
+msgid "Insert Mixx This"
+msgstr ""
+
+#: lib/tt-options.php:927
+msgid "Insert Myspace"
+msgstr ""
+
+#: lib/tt-options.php:947
+msgid "Insert Ping This"
+msgstr ""
+
+#: lib/tt-options.php:967
+msgid "Insert Reddit"
+msgstr ""
+
+#: lib/tt-options.php:987
+msgid "Insert Slashdot"
+msgstr ""
+
+#: lib/tt-options.php:1007
+msgid "Insert Squidoo"
+msgstr ""
+
+#: lib/tt-options.php:1026
+msgid "Insert StumbleUpon"
+msgstr ""
+
+#: lib/tt-options.php:1046
+msgid "Insert Technorati"
+msgstr ""
+
+#: lib/tt-options.php:1062
+msgid "<strong>Public Display Order</strong> [<em>Keep this comma delimited and do not delete services even if you are not using them.</em>]<br />[<strong>Legend:</strong> &nbsp;buzz = Yahoo Buzz; ff = FriendFeed; gbuzz = Google Buzz; su = StumbleUpon</em>]"
+msgstr ""
+
+#: lib/tt-options.php:1141
+msgid "Save All Options"
+msgstr ""
+
+#: lib/tt-options.php:1142
+msgid "If you do not want to save, leave this page without clicking this button."
+msgstr ""
+
+#: lib/tt-options.php:1144
+msgid "Reset All Options"
+msgstr ""
+
+#: lib/tt-options.php:1145
+msgid "This WILL flush the URL cache but will NOT delete scheduled tweets or postmeta."
+msgstr ""
+
+#: lib/tt-options.php:1148
+msgid "Are you sure you want to reset Tweet This to its default options? WARNING: Your OAuth keys and your Adjix.com, Bit.ly, SnipURL.com, and Su.pr logins will be reset."
+msgstr ""
+
+#: lib/tt-options.php:1152
+msgid "Reset All Options Except Keys"
+msgstr ""
+
+#: lib/tt-options.php:1153
+msgid "Same as \"Reset All Options,\" except this preserves your OAuth and URL service keys."
+msgstr ""
+
+#: lib/tt-options.php:1156
+msgid "Are you sure you want to reset Tweet This to its default options? Your OAuth keys and your Adjix.com, Bit.ly, SnipURL.com, and Su.pr logins will be preserved."
+msgstr ""
+
+#: lib/tt-options.php:1160
+msgid "Flush URL Cache"
+msgstr ""
+
+#: lib/tt-options.php:1161
+msgid "Only flushes the URL cache. Nondestructive."
+msgstr ""
+
+#: lib/tt-options.php:1163
+msgid "Are you sure you want to flush the URL cache? This is normally unnecessary because the cache is automatically flushed when you change URL services or related options. WARNING: If you have unsaved options, save them first because this will reload the page without saving your options."
+msgstr ""
+
+#: lib/tt-options.php:1169
+msgid "Completely Uninstall Tweet This"
+msgstr ""
+
+#: lib/tt-options.php:1170
+msgid "Erases all options, postmeta, and scheduled tweets, and deactivates Tweet This."
+msgstr ""
+
+#: lib/tt-options.php:1173
+msgid "Are you sure you want to completely uninstall and deactivate Tweet This? WARNING: All plugin options, API keys, postmeta (custom fields), and scheduled tweets will be permanently erased."
+msgstr ""
+
+#: lib/tt-options.php:1180
+msgid "Import / Export Options"
+msgstr ""
+
+#: lib/tt-options.php:1182
+msgid "EXPORT"
+msgstr ""
+
+#: lib/tt-options.php:1182
+msgid "Save the content below to a text file. Includes your API keys, so don't share this with anyone."
+msgstr ""
+
+#: lib/tt-options.php:1188
+msgid "IMPORT"
+msgstr ""
+
+#: lib/tt-options.php:1193
+msgid "Paste your options here and click \"Import Options.\" Whatever you paste here will be added as-is to the wp_options table for the tweet_this_options row. Importing options from a previous or future version of Tweet This will cause no harm."
+msgstr ""
+
+#: lib/tt-options.php:1202
+msgid "Import Options"
+msgstr ""
+
+#: lib/tt-options.php:1203
+msgid "Erases the old options and imports the options pasted above."
+msgstr ""
+
+#: lib/tt-options.php:1205
+msgid "Are you sure you want to import these options? WARNING: Your current options will be permanently overwritten."
+msgstr ""
+
+#: lib/tt-options.php:1209
+msgid "Importing options requires WordPress 2.0 or newer. <a href=\"http://codex.wordpress.org/Upgrading_WordPress\">Please upgrade</a>. Alternately, open up phpMyAdmin, select your WordPress database, click the \"wp_options\" table, click \"Browse,\" find the \"tweet_this_options\" row, click the edit icon, paste your options dump into the \"option_value\" field, and finally, click \"Go.\""
+msgstr ""
+
+#: lib/tt-options.php:1221
+msgid "If you like Tweet This, help write <a target=\"_blank\" href=\"http://thripp.org/wiki/Tweet_This\">the wiki</a>. Please donate <a target=\"_blank\" href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=richardxthripp@thripp.com&amp;currency_code=USD&amp;amount=&amp;return=&amp;item_name=Donations+for+Tweet+This+plugin\">$11.90 or more</a> or <a target=\"_blank\" href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=thripp@gmail.com&amp;currency_code=USD&amp;amount=&amp;return=&amp;item_name=Donations+for+Tweet+This+plugin\">less than $11.90</a>. <a target=\"_blank\" href=\"http://richardxthripp.thripp.com/tweet-this/#respond\">Report bugs here</a>"
+msgstr ""
+
+#: lib/tt-options.php:1238
+msgid "email"
+msgstr ""
+
