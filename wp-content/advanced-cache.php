@@ -1,0 +1,1 @@
+/users/home/stellsmi/apps/lean_coffee/wp-content/plugins/wp-cache/wp-cache-phase1.php
