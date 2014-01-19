@@ -3,8 +3,8 @@ Contributors: ryelle
 Donate link: https://www.paypal.com/us/cgi-bin/webscr?cmd=_flow&SESSION=7OzM1TYh271yVnb30fI26d7BkYaEcnM9pmQnT42lWbEm7BsLORp4G_2UTRW&dispatch=5885d80a13c0db1f8e263663d3faee8d4026841ac68a446f69dad17fb2afeca3
 Tags: meetup, meetups, meetup.com, widget
 Requires at least: 3.3
-Tested up to: 3.4.1
-Stable tag: 2.0.2
+Tested up to: 3.8
+Stable tag: 2.2.0
 
 Adds widgets displaying information from a meetup.com group.
 
@@ -12,7 +12,7 @@ Adds widgets displaying information from a meetup.com group.
 
 For use with a [Meetup.com](http://meetup.com) group.
 
-This plugin creates two widgets: one a list of events from a specific meetup group (by ID or URL name); the other shows details about single event (by ID) with a link to RSVP - using OAuth if keys are specified, otherwise just a link to the event on meetup.com. Does require at least an API key (which it asks for on the settings page).
+This plugin creates two widgets: one a list of events from a meetup group (by ID or URL name, for multiple groups use IDs); the other shows details about single event (by ID) with a link to RSVP - using OAuth if keys are specified, otherwise just a link to the event on meetup.com. Does require at least an API key (which it asks for on the settings page).
 
 == Installation ==
 
@@ -37,7 +37,7 @@ It's in the event page's URL: http://www.meetup.com/`[group ID]`/events/`[event 
 
 = How do I find my group ID? =
 
-If your meetup group is set up at meetup.com/`[group ID]`, the part after `meetup.com/` is your group ID. 
+If your meetup group is set up at meetup.com/`[group URL name]`, the part after `meetup.com/` is one of your group identifiers (the URL name). The other possible identifier is your group's ID number. 
 
 == Screenshots ==
 
@@ -45,6 +45,20 @@ If your meetup group is set up at meetup.com/`[group ID]`, the part after `meetu
 2. Example of the upcoming event list widget. Lists a set number of events from the group you specify, title & date.
 
 == Upgrade Notice ==
+
+= 2.2 =
+* Fix bug where widgets could only be used once per page, due to `load_template` calling `require_once` by default.
+* Add clases to `<p>`s in meetup-single template, so you can style the title/date/summary/location without jumping through CSS hoops.
+* Add 2 filters, `vsm_no_date_text` and `vsm_no_location_text`, for filtering the text displayed if there is no date or location set.
+* Some escaping of API data on the meetup templates.
+
+= 2.1 =
+* Stray semicolon! The list template was causing a PHP syntax error. Thanks to Jordan Wagnon for letting me know.
+
+= 2.1 =
+* At the suggestion of [Harlan Harris](http://datacommunitydc.org/), I investigated using multiple groups in one widget - happily, it worked by default. I've adjusted the validation in the widget to allow multiple group IDs (does need to be the ID numbers, not URL name).
+* Add a new widget! Meetup User Events displays all events for a user, specifically the user who created the API key. 
+* Use `get_template_part` to allow theme developers to create their own displays. Documentation will be available on [my website](http://redradar.net/category/plugins/meetup-widgets/) shortly.
 
 = 2.0.2 =
 * Validation function was not actually working. Now we're correctly only saving valid keys - valid meaning 0-40 char alphanumeric strings.

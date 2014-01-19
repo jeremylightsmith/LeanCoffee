@@ -10,6 +10,7 @@ class VsMeetWidget extends VsMeet{
 	private $acc_url = 'http://api.meetup.com/oauth/access/';
 	private $api_url = 'http://api.meetup.com/';
 	private $callback_url = '';
+	private $base_url = 'http://api.meetup.com/2/events/';
 		
 	private $key = '';
 	private $secret = '';	
@@ -30,84 +31,187 @@ class VsMeetWidget extends VsMeet{
 	}
 	
 	/**
-	 * Get a single event, with a link to RSVP (OAuth, new tiny window).
-	 * @param string $id Event ID
-	 * @return string Event details formatted for display in widget
+	 * Given arguments & a transient name, grab data from the events API
+	 * 
+	 * @param  $args       array   Query params to send to events.json call
+	 * @param  $transient  string  The transient name (if empty, no transient stored)
+	 * 
+	 * @return  array  Event data (single event or list)
 	 */
-	public function get_single_event($id){
-		$options = get_option('vs_meet_options');
-		$this->api_key = $options['vs_meetup_api_key'];
-		if (!empty($this->api_key)){
-			$out = '';
-			$event_response = wp_remote_get( "http://api.meetup.com/2/events.json/?event_id=$id&key=".$this->api_key );
+	public function get_data( $args, $transient = '' ){
+		if ( $transient )
+			$event = get_transient( $transient );
+
+		$defaults = array(
+			'key' => $this->api_key,
+		);
+
+		if ( false === $event ) {
+			$args = wp_parse_args( $args, $defaults );
+			$url = add_query_arg( $args, $this->base_url );
+			$event_response = wp_remote_get( $url );
 			if( is_wp_error( $event_response )) {
-				if (WP_DEBUG){
+				if ( WP_DEBUG ){
 					echo 'Something went wrong!';
 					var_dump($event_response);
 				}
-			} else {
-				$event = json_decode($event_response['body'])->results[0];
-				// just send the link out to meetup's OAuth link.
-				$out .= '<h3><a href="'.$event->event_url.'">'.$event->name.'</a></h3>';
-				$out .= '<p>'.date('F d, Y @ g:i a',intval($event->time/1000 + $event->utc_offset/1000)).'</p>';
-				$out .= '<p>'. wp_trim_words(strip_tags($event->description),20) .'</p>';
-				$out .= '<p><span class="rsvp-count">'.$event->yes_rsvp_count.' '._n('attendee', 'attendees', $event->yes_rsvp_count).'</span>';
-				if ( !empty($options['vs_meetup_key']) && !empty($options['vs_meetup_secret']) && class_exists('OAuth')) {
-					$out .= "<span class='rsvp-add'><a href='#' onclick='javascript:window.open(\"{$this->callback_url}&event=$id\",\"authenticate\",\"width=400,height=600\");'>RSVP?</a></span></p>";
-				} else {
-					$out .= '<span class="rsvp-add"><a href="'.$event->event_url.'">RSVP?</a></span></p>';
-				}
-	
-				if (null !== $event->venue) {
-					$venue = $event->venue->name.' '.$event->venue->address_1 . ', ' . $event->venue->city . ', ' . $event->venue->state;
-					$out .= "<p class='event_location'>Location: <a href='http://maps.google.com/maps?q=$venue+%28".$event->venue->name."%29&z=17'>$venue</a></p>";
-				} else {
-					$out .= "<p class='event_location'>Location: TBA</p>";
-				}
+				return false;
 			}
+			$event = json_decode( $event_response['body'] );
+			// Single events only return first result
+			if ( ! isset( $event->results ) || ! isset( $event->results[0] ) )
+				return false;
+
+			if ( isset( $args['event_id'] ) )
+				$event = $event->results[0];
+			else
+				$event = $event->results;
+
+			if ( $transient )
+				set_transient( $transient, $event, 60*60*2 );
+		}
+		
+		return $event;
+	}
+
+	/**
+	 * Get a single event, with a link to RSVP (OAuth, new tiny window).
+	 * 
+	 * @param string $id Event ID
+	 * 
+	 * @return string Event details formatted for display in widget
+	 */
+	public function get_single_event( $id ){
+		global $event;
+		$options = get_option( 'vs_meet_options' );
+		$this->api_key = $options['vs_meetup_api_key'];
+		$out = '';
+
+		if ( ! empty( $this->api_key ) ) {
+			$event = $this->get_data( array( 'event_id' => $id ), 'vsm_single_event_'.$id );
+			if ( ! $event )
+				return;
+
+			ob_start();
+
+			// We want the callback URL in the template, passing it in via the global $event is easiest.
+			$event->callback_url = $this->callback_url;
+			$template = '';
+			if ( isset( $event->group ) && isset( $event->group->urlname ) ) 
+				$template = $event->group->urlname;
+			get_template_part( 'meetup-single', apply_filters( 'vsm_single_template', $template, $event ) );
+			$out = ob_get_contents();
+
+			if ( empty( $out ) ) {
+				// grab the template included in plugin
+				if ( file_exists( dirname(__FILE__).'/meetup-single.php' ) )
+					load_template( dirname(__FILE__).'/meetup-single.php', false ); 
+				$out = ob_get_contents();
+			}
+
+			ob_end_clean();
+
 		} else {
-			$out = '<p><a href="'.admin_url('options-general.php').'">Please enter an API key</a></p>';
+			if ( is_user_logged_in() )
+				$out = '<p><a href="'.admin_url('options-general.php').'">Please enter an API key</a></p>';
 		}
 		return $out;
 	}
 	
 	/**
+	 * Get the HTML for a group's events via Meetup API
 	 * 
-	 * @param string $id Meetup ID or URL name
-	 * @param string $limit number of events to display, default 5.
-	 * @param string $filter not used
+	 * @param string  $id    Meetup ID or URL name
+	 * @param string  $limit Number of events to display, default 5.
+	 * 
  	 * @return string Event list formatted for display in widget
 	 */
-	public function get_list_events( $id, $limit = 5, $filter = '' ){
+	public function get_group_events( $id, $limit = 5 ){
+		global $events;
 		$options = get_option('vs_meet_options');
 		$this->api_key = $options['vs_meetup_api_key'];
-		if (!empty($this->api_key)) {
-			$out = '';
+
+		if ( ! empty( $this->api_key ) ) {
+			$args = array(
+				'status' => 'upcoming',
+				'page' => $limit,
+			);
 			if ( preg_match('/[a-zA-Z]/', $id ) )
-				$event_response = wp_remote_get( "http://api.meetup.com/2/events.json/?group_urlname=$id&status=upcoming&page=$limit&key=". $this->api_key );
+				$args['group_urlname'] = $id;
 			else
-				$event_response = wp_remote_get( "http://api.meetup.com/2/events.json/?group_id=$id&status=upcoming&page=$limit&key=". $this->api_key );
-	
-			if( is_wp_error( $event_response ) ) {
-				if (WP_DEBUG){
-					echo 'Something went wrong!';
-					var_dump($event_response);
-				}
-			} else {
-				$events = json_decode($event_response['body'])->results;
-				$out .= "<ul class='meetup_list'>";
-				foreach ($events as $event) {
-					$out .= "<li><a href='".$event->event_url."'>".$event->name."</a>; ".date('M d, g:ia',intval($event->time/1000 + $event->utc_offset/1000))."</li>";
-				}
-				$out .= '</ul>';
-				//$out .= '<pre>'.print_r($events,true).'</pre>';
+				$args['group_id'] = $id;
+				
+			$events = $this->get_data( $args, 'vsm_group_events_'.$id.'_'.$limit );
+			if ( ! $events )
+				return;
+			
+			ob_start();
+			get_template_part( 'meetup-list', 'group' );
+			$out = ob_get_contents();
+
+			if ( empty( $out ) ) {
+				// grab the template included in plugin
+				if ( file_exists( dirname(__FILE__).'/meetup-list.php' ) )
+					load_template( dirname(__FILE__).'/meetup-list.php', false ); 
+				$out = ob_get_contents();
 			}
+
+			ob_end_clean();
+
+		} else {
+			if ( is_user_logged_in() )
+				$out = '<p><a href="'.admin_url('options-general.php').'">Please enter an API key</a></p>';
+		}
+		return $out;
+	}
+	// Function name was changed in 2.1, leave this for backwards compatibilty
+	function get_list_events( $id, $limit = 5, $deprecated = '' ){
+		$this->get_group_events( $id, $limit );
+	}
+	
+	/**
+	 * Get user's list of events
+	 * 
+	 * @param string  $id     User ID
+	 * @param string  $limit  Number of events to display, default 5.
+	 * @param string  $rsvp   Only return events with this RSVP status (can only be set to 'yes' in UI)
+	 * 
+	 * @return string Event list formatted for display in widget
+	 */
+	public function get_user_events($limit = 5 ){
+		global $events;
+		$options = get_option('vs_meet_options');
+		$this->api_key = $options['vs_meetup_api_key'];
+
+		if ( ! empty( $this->api_key ) ) {
+			$args = array(
+				'rsvp' => 'yes',
+				'page' => $limit,
+			);
+			
+			$events = $this->get_data( $args, 'vsm_user_events_'.$limit );
+			if ( ! $events )
+				return;
+			
+			ob_start();
+			get_template_part( 'meetup-list', 'group' );
+			$out = ob_get_contents();
+	
+			if ( empty( $out ) ) {
+				// grab the template included in plugin
+				if ( file_exists( dirname(__FILE__).'/meetup-list.php' ) )
+					load_template( dirname(__FILE__).'/meetup-list.php', false ); 
+				$out = ob_get_contents();
+			}
+	
+			ob_end_clean();
+
 		} else {
 			$out = '<p><a href="'.admin_url('options-general.php').'">Please enter an API key</a></p>';
 		}
 		return $out;
 	}
-	
+
 	/**
 	 * Create the event RSVP popup
 	 */
@@ -219,6 +323,7 @@ class VsMeetWidget extends VsMeet{
 		unset($_SESSION['event']);
 		echo "</div> </body> </html>";
 	}
+
 }
 
 
@@ -239,8 +344,9 @@ class VsMeetSingleWidget extends WP_Widget {
         echo $before_widget;
         if ( $title ) echo $before_title . $title . $after_title;
         if ( $id ) {
-        	$vsm = new VsMeetWidget();
-	        echo $vsm->get_single_event($id);
+    		$vsm = new VsMeetWidget();
+    		$html = $vsm->get_single_event($id);
+    		echo $html;
 	    }
         echo $after_widget;
     }
@@ -250,6 +356,7 @@ class VsMeetSingleWidget extends WP_Widget {
         $instance = $old_instance;
         $instance['title'] = strip_tags($new_instance['title']);
         $instance['id'] = strip_tags($new_instance['id']);
+        
         return $instance;
     }
 
@@ -294,8 +401,9 @@ class VsMeetListWidget extends WP_Widget {
         echo $before_widget;
         if ( $title ) echo $before_title . $title . $after_title;
         if ( $id ) {
-        	$vsm = new VsMeetWidget();
-	        echo $vsm->get_list_events($id,$limit);
+    		$vsm = new VsMeetWidget();
+    		$html = $vsm->get_group_events( $id, $limit );
+       		echo $html;
 	    }
         echo $after_widget;
     }
@@ -304,8 +412,12 @@ class VsMeetListWidget extends WP_Widget {
     function update($new_instance, $old_instance) {				
         $instance = $old_instance;
         $instance['title'] = strip_tags($new_instance['title']);
-        $instance['id'] = strip_tags($new_instance['id']);
+        if ( preg_match('/[a-zA-Z]/', $new_instance['id'] ) ) 
+	        $instance['id'] = sanitize_title( $new_instance['id'] );
+	    else 
+	    	$instance['id'] = str_replace( ' ', '', $new_instance['id'] );
         $instance['limit'] = intval($new_instance['limit']); 
+        
         return $instance;
     }
 
@@ -337,3 +449,63 @@ class VsMeetListWidget extends WP_Widget {
 		</p>
     <?php }
 } // class VsMeetListWidget
+
+/**
+ * VsMeetUserList extends the widget class to create an event list for a specific meetup group.
+ */
+class VsMeetUserListWidget extends WP_Widget {
+    /** constructor */
+    function VsMeetUserListWidget() {
+        parent::WP_Widget( false, __( 'Meetup User Events', 'vsmeet_domain' ), array( 'description' => __( "Display a list of events for a single user.", 'vsmeet_domain' ), 'classname' => 'widget_meetup_user_list' ) );	
+    }
+
+    /** @see WP_Widget::widget */
+    function widget($args, $instance) {		
+        extract( $args );
+        $title = apply_filters('widget_title', $instance['title']);
+        $limit = absint($instance['limit']);
+        
+        echo $before_widget;
+        if ( $title ) echo $before_title . $title . $after_title;
+		$vsm = new VsMeetWidget();
+		$html = $vsm->get_user_events( $limit );
+   		echo $html;
+        echo $after_widget;
+    }
+
+    /** @see WP_Widget::update */
+    function update($new_instance, $old_instance) {				
+        $instance = $old_instance;
+        $instance['title'] = strip_tags($new_instance['title']);
+        $instance['limit'] = absint($new_instance['limit']);
+        
+        // remove caching of old event
+        if (!empty($old_instance['id']))
+            delete_transient( 'vsmeet_user_events_'.$old_instance['id'] );
+        
+        return $instance;
+    }
+
+    /** @see WP_Widget::form */
+    function form($instance) {
+        if ( $instance ) {
+			$title = esc_attr($instance['title']);
+			$limit = absint($instance['limit']);
+        } else {
+			$title = '';
+			$limit = 5;
+        }
+        ?>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>">
+            <?php _e('Title:','vsmeet_domain'); ?>
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+        </label></p>
+        <p>
+        	<label for="<?php echo $this->get_field_id('limit'); ?>">
+            	<?php _e('Number of events to show:','vsmeet_domain');?>
+            </label>
+            <input id="<?php echo $this->get_field_id('limit'); ?>" name="<?php echo $this->get_field_name('limit'); ?>" type="text" value="<?php echo $limit; ?>" size='3' />
+        </p>
+        <p class="description">This widget automatically pulls events from the user who created the API key.</p>
+    <?php }
+} // class VsMeetUserListWidget

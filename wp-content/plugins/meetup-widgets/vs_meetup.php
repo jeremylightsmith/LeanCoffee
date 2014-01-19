@@ -2,12 +2,12 @@
 /*
  * Plugin Name: Meetup Widgets
  * Description: Add widgets displaying information from Meetup.com
- * Version: 2.0.2
+ * Version: 2.2.0
  * Author: Kelly Dwan
  * Author URI: http://redradar.net
- * Plugin URI: http://me.redradar.net/category/plugins/meetup-widgets/
+ * Plugin URI: http://redradar.net/category/plugins/meetup-widgets/
  * License: GPL2
- * Date: 8.13.2012
+ * Date: 5.30.2013
  */
 
 /** 
@@ -55,7 +55,6 @@ class VsMeet {
 		add_settings_field('vs_meetup_secret', '<label for="vs_meetup_secret">'.__('OAuth Meetup Secret:' , 'vsmeet_domain' ).'</label>' , array(&$this, 'setting_vs_meetup_secret') , 'general', 'vs_meet' );
 		
 		add_settings_field('vs_meetup_api_key', '<label for="vs_meetup_api_key">'.__('Meetup API Key:' , 'vsmeet_domain' ).'</label>' , array(&$this, 'setting_vs_meetup_api_key') , 'general', 'vs_meet' );
-		
 		
 	}
 
@@ -111,6 +110,7 @@ function meetup_widgets_start() {
 // Register widgets
 add_action('widgets_init', create_function('', 'return register_widget("VsMeetSingleWidget");'));
 add_action('widgets_init', create_function('', 'return register_widget("VsMeetListWidget");'));
+add_action('widgets_init', create_function('', 'return register_widget("VsMeetUserListWidget");'));
 
 function vsmw_need_oauth() {
 	echo '<div id="message" class="updated"><p>Some functionality of <strong>Meetup Login</strong> requires <strong><a href="http://php.net/manual/en/book.oauth.php">OAuth</a></strong>, which is not detected on this server. RSVPing from this site is disabled - RSVP links will instead bring you to the event on Meetup.com.</p></div>';
