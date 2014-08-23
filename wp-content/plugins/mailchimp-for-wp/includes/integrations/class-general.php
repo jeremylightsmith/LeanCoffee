@@ -9,29 +9,75 @@ if( ! defined( "MC4WP_LITE_VERSION" ) ) {
 
 class MC4WP_General_Integration extends MC4WP_Integration {
 
-    protected $checkbox_name_value = 'mc4wp-subscribe';
+	/**
+	 * @var string
+	 */
+	protected $type = 'general';
+
+	/**
+	 * @var string
+	 */
+	protected $checkbox_name = 'mc4wp-subscribe';
 
 	/**
 	* Constructor
 	*/
 	public function __construct() {
+
 		// run backwards compatibility routine
 		$this->upgrade();
 
 		// hook actions
-		add_action( 'init', array( $this, 'try_subscribe' ) );
+		add_action( 'init', array( $this, 'maybe_subscribe'), 90 );
 	}
 
 	/**
 	* Upgrade routine
-    * - Handles name change of checkbox for third-party form integrations: mc4wp-try-subscribe > mc4wp-subscribe
 	*/
-	public function upgrade() {
+	private function upgrade() {
 		// set new $_POST trigger value
 		if( isset( $_POST['mc4wp-try-subscribe'] ) ) {
-			$_POST[ $this->checkbox_name_value ] = 1;
+			$_POST[ $this->checkbox_name ] = 1;
 			unset( $_POST['mc4wp-try-subscribe'] );
 		}
+
+		if( isset( $_POST['mc4wp-do-subscribe'] ) ) {
+			$_POST[ $this->checkbox_name ] = 1;
+			unset( $_POST['mc4wp-do-subscribe'] );
+		}
+	}
+
+	/**
+	 * Maybe fire a general subscription request
+	 */
+	public function maybe_subscribe() {
+
+		if ( $this->checkbox_was_checked() === false ) {
+			return;
+		}
+
+		// don't run if this is a CF7 request
+		if( isset( $_POST['_wpcf7'] ) ) {
+			return false;
+		}
+
+		$this->try_subscribe( 'other_form' );
+	}
+
+	/**
+	 * @return boolean
+	 */
+	public function checkbox_was_checked() {
+
+		if( $this->is_honeypot_filled() ) {
+			return false;
+		}
+
+		if( isset( $_POST[ '_mc4wp_subscribe' ] ) && $_POST[ '_mc4wp_subscribe' ] == 1 ) {
+			return true;
+		}
+
+		return ( isset( $_POST[ $this->checkbox_name ] ) && $_POST[ $this->checkbox_name ] == 1 );
 	}
 
 	/**
@@ -41,10 +87,6 @@ class MC4WP_General_Integration extends MC4WP_Integration {
 	*/	
 	public function try_subscribe( $trigger = 'other_form' ) {
 
-		if ( $this->checkbox_was_checked() === false ) { 
-			return false; 
-		}
-
 		// start running..
 		$email = null;
 		$merge_vars = array(
@@ -53,13 +95,12 @@ class MC4WP_General_Integration extends MC4WP_Integration {
 
 		foreach( $_POST as $key => $value ) {
 
-			// @todo sanitize value
-
-			if( $key[0] === '_' || $key === $this->checkbox_name_value ) {
-				continue; 
+			if( $key[0] === '_' || $key === $this->checkbox_name ) {
+				continue;
 			} elseif( strtolower( substr( $key, 0, 6 ) ) === 'mc4wp-' ) {
 				// find extra fields which should be sent to MailChimp
 				$key = strtoupper( substr( $key, 6 ) );
+				$value = ( is_scalar( $value ) ) ? trim( $value ) : $value;
 
 				switch( $key ) {
 					case 'EMAIL':
@@ -77,7 +118,7 @@ class MC4WP_General_Integration extends MC4WP_Integration {
 							if(is_numeric($grouping_id_or_name)) {
 								$grouping['id'] = $grouping_id_or_name;
 							} else {
-								$grouping['name'] = $grouping_id_or_name;
+								$grouping['name'] = stripslashes( $grouping_id_or_name );
 							}
 
 							// comma separated list should become an array
@@ -102,10 +143,12 @@ class MC4WP_General_Integration extends MC4WP_Integration {
 					break;
 				}
 
-
 			} elseif( ! $email && is_email( $value ) ) {
-				// find first email field
+				// if no email is found yet, check if current field value is an email
 				$email = $value;
+			} elseif( ! $email && is_array( $value ) && isset( $value[0] ) && is_email( $value[0] ) ) {
+				// if no email is found yet, check if current value is an array and if first array value is an email
+				$email = $value[0];
 			} else {
 				$simple_key = str_replace( array( '-', '_' ), '', strtolower( $key ) );
 

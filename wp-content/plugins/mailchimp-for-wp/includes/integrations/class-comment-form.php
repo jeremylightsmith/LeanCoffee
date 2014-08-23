@@ -7,8 +7,13 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 }
 
 class MC4WP_Comment_Form_Integration extends MC4WP_Integration {
-	
+
+	protected $type = 'comment_form';
+
 	public function __construct() {
+
+		parent::__construct();
+
 		// hooks for outputting the checkbox
 		add_action( 'thesis_hook_after_comment_box', array( $this, 'output_checkbox' ), 10 );
 		add_action( 'comment_form', array( $this, 'output_checkbox' ), 10 );
@@ -18,19 +23,12 @@ class MC4WP_Comment_Form_Integration extends MC4WP_Integration {
 	}
 
 	/**
-	* Outputs the checkbox for the comment form
-	*/
-	public function output_checkbox( $hook = '' ) {
-		return parent::output_checkbox( 'comment_form' );
-	}
-
-	/**
 	* Grabs data from WP Comment Form
 	*
-	* @param int $comment_ID
+	* @param int $comment_id
 	* @param string $comment_approved 
 	*/
-	public function subscribe_from_comment( $comment_ID, $comment_approved = '' ) {
+	public function subscribe_from_comment( $comment_id, $comment_approved = '' ) {
 
 		// was sign-up checkbox checked?
 		if ( $this->checkbox_was_checked() === false ) { 
@@ -42,7 +40,7 @@ class MC4WP_Comment_Form_Integration extends MC4WP_Integration {
 			return false; 
 		}
 
-		$comment = get_comment( $comment_ID );
+		$comment = get_comment( $comment_id );
 
 		$email = $comment->comment_author_email;
 		$merge_vars = array(
@@ -50,6 +48,6 @@ class MC4WP_Comment_Form_Integration extends MC4WP_Integration {
 			'OPTIN_IP' => $comment->comment_author_IP
 		);
 
-		return $this->subscribe( $email, $merge_vars, 'comment' );
+		return $this->subscribe( $email, $merge_vars, 'comment', $comment_id );
 	}
 }
