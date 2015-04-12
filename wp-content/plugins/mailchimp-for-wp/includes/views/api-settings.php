@@ -1,13 +1,13 @@
-<?php 
+<?php
 
-if( ! defined("MC4WP_LITE_VERSION") ) {
+if( ! defined( 'MC4WP_LITE_VERSION' ) ) {
 	header( 'Status: 403 Forbidden' );
 	header( 'HTTP/1.1 403 Forbidden' );
 	exit;
 }
 
 ?>
-<div id="mc4wp" class="wrap mc4wp-settings">
+<div id="mc4wp-admin" class="wrap mc4wp-settings">
 
 	<h2><img src="<?php echo MC4WP_LITE_PLUGIN_URL . 'assets/img/menu-icon.png'; ?>" /> <?php _e( 'MailChimp for WordPress', 'mailchimp-for-wp' ); ?>: <?php _e( 'MailChimp Settings', 'mailchimp-for-wp' ); ?></h2>
 
@@ -23,7 +23,7 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 				<?php if($connected) { ?>
 					<span class="status positive"><?php _e( 'CONNECTED' ,'mailchimp-for-wp' ); ?></span>
 				<?php } else { ?>
-					<span class="status negative"><?php _e( 'NOT CONNECTED', 'mailchimp-for-wp' ); ?></span>
+					<span class="status neutral"><?php _e( 'NOT CONNECTED', 'mailchimp-for-wp' ); ?></span>
 				<?php } ?>
 			</h3>
 			<table class="form-table">
@@ -31,8 +31,8 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 				<tr valign="top">
 					<th scope="row"><label for="mailchimp_api_key">MailChimp <?php _e( 'API Key', 'mailchimp-for-wp' ); ?></label></th>
 					<td>
-						<input type="text" class="widefat" placeholder="<?php _e( 'Your MailChimp API key', 'mailchimp-for-wp' ); ?>" id="mailchimp_api_key" name="mc4wp_lite[api_key]" value="<?php echo $opts['api_key']; ?>" />
-						<p class="help"><a target="_blank" href="http://admin.mailchimp.com/account/api"><?php _e( 'Get your API key here.', 'mailchimp-for-wp' ); ?></a></p>
+						<input type="text" class="widefat" placeholder="<?php _e( 'Your MailChimp API key', 'mailchimp-for-wp' ); ?>" id="mailchimp_api_key" name="mc4wp_lite[api_key]" value="<?php echo esc_attr( $opts['api_key'] ); ?>" />
+						<p class="help"><a target="_blank" href="https://admin.mailchimp.com/account/api"><?php _e( 'Get your API key here.', 'mailchimp-for-wp' ); ?></a></p>
 					</td>
 					
 				</tr>
@@ -66,7 +66,7 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 				</tr>
 			</thead>
 			<tbody>
-				<?php 
+				<?php
 				if( ! empty( $lists ) && is_array( $lists ) ) {
 					foreach($lists as $list) { ?>
 
@@ -78,13 +78,13 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 							<?php if( ! empty( $list->merge_vars ) && is_array( $list->merge_vars ) ) { ?>
 								<ul class="ul-square" style="margin-top: 0;">
 									<?php foreach( $list->merge_vars as $merge_var ) { ?>
-										<li><?php echo esc_html( $merge_var->name ); if( $merge_var->req ) echo '<span style="color:red;">*</span>'; ?> <code><?php echo esc_html( $merge_var->tag ); ?></code></li>
+										<li><?php echo esc_html( $merge_var->name ); if( $merge_var->req ) { echo '<span style="color:red;">*</span>'; } ?> <code><?php echo esc_html( $merge_var->tag ); ?></code></li>
 									<?php } ?>
 								</ul>
 							<?php } ?>
 						</td>
 						<td>
-						<?php 
+						<?php
 						if( ! empty( $list->interest_groupings ) && is_array( $list->interest_groupings ) ) {
 							foreach($list->interest_groupings as $grouping) { ?>
 								<strong><?php echo esc_html( $grouping->name ); ?></strong>
@@ -97,23 +97,23 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 									</ul>
 								<?php } ?>
 							<?php }
-							} else {
-								?>-<?php
-							} ?>
+						} else {
+							?>-<?php
+						} ?>
 
 						</td>
 						<td class="mc4wp-hide-smallscreens"><?php echo esc_html( $list->subscriber_count ); ?></td>
 					</tr>
-					<?php 
-					}  
+					<?php
+					}
 				} else { ?>
 					<tr>
 						<td colspan="5">
 							<p><?php _e( 'No lists were found in your MailChimp account', 'mailchimp-for-wp' ); ?>.</p>
 						</td>
 					</tr>
-				<?php 
-				} 
+				<?php
+				}
 				?>
 			</tbody>
 		</table>

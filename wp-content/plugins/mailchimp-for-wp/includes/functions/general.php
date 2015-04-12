@@ -1,6 +1,6 @@
 <?php
 
-if( ! defined("MC4WP_LITE_VERSION") ) {
+if( ! defined( 'MC4WP_LITE_VERSION' ) ) {
 	header( 'Status: 403 Forbidden' );
 	header( 'HTTP/1.1 403 Forbidden' );
 	exit;
@@ -13,7 +13,7 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 * @param string $key
 * @return array
 */
-function mc4wp_get_options( $key = null ) {
+function mc4wp_get_options( $key = '' ) {
 	static $options = null;
 
 	if( null === $options ) {
@@ -24,7 +24,7 @@ function mc4wp_get_options( $key = null ) {
 
 		$defaults = array(
 			'general' => array(
-				'api_key' => ''
+				'api_key' => '',
 			),
 			'checkbox' => array(
 				'label' => __( 'Sign me up for the newsletter!', 'mailchimp-for-wp' ),
@@ -35,12 +35,18 @@ function mc4wp_get_options( $key = null ) {
 				'show_at_multisite_form' => 0,
 				'show_at_buddypress_form' => 0,
 				'show_at_bbpress_forms' => 0,
+				'show_at_woocommerce_checkout' => 0,
+				'show_at_edd_checkout' => 0,
 				'lists' => array(),
-				'double_optin' => 1
+				'double_optin' => 1,
+				'update_existing' => 0,
+				'replace_interests' => 1,
+				'send_welcome' => 0,
+				'woocommerce_position' => 'order',
 			),
 			'form' => array(
 				'css' => 'default',
-				'markup' => "<p>\n\t<label for=\"mc4wp_email\">{$email_label}: </label>\n\t<input type=\"email\" id=\"mc4wp_email\" name=\"EMAIL\" placeholder=\"{$email_placeholder}\" required />\n</p>\n\n<p>\n\t<input type=\"submit\" value=\"{$signup_button}\" />\n</p>",
+				'markup' => "<p>\n\t<label>{$email_label}: </label>\n\t<input type=\"email\" id=\"mc4wp_email\" name=\"EMAIL\" placeholder=\"{$email_placeholder}\" required />\n</p>\n\n<p>\n\t<input type=\"submit\" value=\"{$signup_button}\" />\n</p>",
 				'text_success' => __( 'Thank you, your sign-up request was successful! Please check your e-mail inbox.', 'mailchimp-for-wp' ),
 				'text_error' => __( 'Oops. Something went wrong. Please try again later.', 'mailchimp-for-wp' ),
 				'text_invalid_email' => __( 'Please provide a valid email address.', 'mailchimp-for-wp' ),
@@ -49,31 +55,34 @@ function mc4wp_get_options( $key = null ) {
 				'text_required_field_missing' => __( 'Please fill in the required fields.', 'mailchimp-for-wp' ),
 				'redirect' => '',
 				'lists' => array(),
+				'hide_after_success' => 0,
 				'double_optin' => 1,
-				'hide_after_success' => 0
-			)
+				'update_existing' => 0,
+				'replace_interests' => 1,
+				'send_welcome' => 0,
+			),
 		);
 
 		$db_keys_option_keys = array(
 			'mc4wp_lite' => 'general',
 			'mc4wp_lite_checkbox' => 'checkbox',
-			'mc4wp_lite_form' => 'form'
+			'mc4wp_lite_form' => 'form',
 		);
 
 		$options = array();
 		foreach ( $db_keys_option_keys as $db_key => $option_key ) {
-			$option = get_option( $db_key, false );
+			$option = (array) get_option( $db_key, array() );
 
 			// add option to database to prevent query on every pageload
-			if ( $option === false ) {
+			if ( count( $option ) === 0 ) {
 				add_option( $db_key, $defaults[$option_key] );
 			}
 
-			$options[$option_key] = array_merge( $defaults[$option_key], (array) $option );
+			$options[$option_key] = array_merge( $defaults[$option_key], $option );
 		}
 	}
 
-	if( null !== $key ) {
+	if( '' !== $key ) {
 		return $options[$key];
 	}
 
@@ -83,9 +92,8 @@ function mc4wp_get_options( $key = null ) {
 /**
 * Gets the MailChimp for WP API class and injects it with the given API key
 *
-* @return MC4WP_Lite_API
+* @return MC4WP_API
 */
 function mc4wp_get_api() {
-	global $mc4wp;
-	return $mc4wp->get_api();
+	return MC4WP_Lite::instance()->get_api();
 }

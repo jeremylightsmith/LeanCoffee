@@ -1,43 +1,23 @@
 /* MailChimp for WP - Default Form Styles */
 .mc4wp-form {
   margin: 1em 0;
+  /* Form Elements */
+  /* Other elements */
 }
-
-form.mc4wp-form,
 .mc4wp-form form {
   width: auto;
 }
-
 .mc4wp-form label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
 }
-
-.mc4wp-form ul,
-.mc4wp-form li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.mc4wp-form label > span,
-.mc4wp-form li > label {
-  font-weight: normal;
-}
-
-.mc4wp-form p > label:nth-child(2) {
-  margin-top: 10px;
-}
-
 .mc4wp-form input {
   vertical-align: baseline;
 }
-
 .mc4wp-form input.placeholdersjs {
   color: #aaa !important;
 }
-
 .mc4wp-form input[type="text"],
 .mc4wp-form input[type="email"],
 .mc4wp-form input[type="tel"],
@@ -53,7 +33,6 @@ form.mc4wp-form,
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-
 .mc4wp-form input[type="checkbox"],
 .mc4wp-form input[type="radio"] {
   position: relative;
@@ -64,20 +43,30 @@ form.mc4wp-form,
   display: inline-block;
   border: 0;
 }
-
 .mc4wp-form input[type="checkbox"] {
   -webkit-appearance: checkbox;
 }
-
 .mc4wp-form input[type="radio"] {
   -webkit-appearance: radio;
 }
-
+.mc4wp-form input[name="_mc4wp_required_but_not_really"] {
+  display: none !important;
+}
 .mc4wp-form input[type="submit"],
 .mc4wp-form button,
 .mc4wp-form input[type="button"] {
   cursor: pointer;
   display: inline-block;
+}
+.mc4wp-form ul,
+.mc4wp-form li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mc4wp-form label > span,
+.mc4wp-form li > label {
+  font-weight: normal;
 }
 
 .mc4wp-alert {
@@ -183,6 +172,7 @@ form.mc4wp-form,
 }
 
 .mc4wp-form input[type="submit"],
+.mc4wp-form input[type="button"],
 .mc4wp-form button {
   display: inline-block;
   padding: 6px 12px;
@@ -210,6 +200,7 @@ form.mc4wp-form,
 }
 
 .mc4wp-form input[type="submit"]:focus,
+.mc4wp-form input[type="button"]:focus,
 .mc4wp-form button:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
@@ -217,8 +208,10 @@ form.mc4wp-form,
 }
 
 .mc4wp-form input[type="submit"]:hover,
+.mc4wp-form input[type="button"]:hover,
 .mc4wp-form button:hover,
 .mc4wp-form input[type="submit"]:focus,
+.mc4wp-form input[type="button"]:focus,
 .mc4wp-form button:focus {
   color: #333333;
   text-decoration: none;
@@ -226,6 +219,7 @@ form.mc4wp-form,
 }
 
 .mc4wp-form input[type="submit"]:active,
+.mc4wp-form input[type="button"]:active,
 .mc4wp-form button:active {
   background-image: none;
   outline: 0;
@@ -261,3 +255,5 @@ form.mc4wp-form,
 .mc4wp-form select:focus {
   border-color: #444444;
 }
+
+/*# sourceMappingURL=form-theme-dark.css.map */

@@ -1,7 +1,7 @@
 <?php
 
 // prevent direct file access
-if( ! defined("MC4WP_LITE_VERSION" ) ) {
+if( ! defined( 'MC4WP_LITE_VERSION' ) ) {
 	header( 'Status: 403 Forbidden' );
 	header( 'HTTP/1.1 403 Forbidden' );
 	exit;
@@ -38,7 +38,7 @@ class MC4WP_MultiSite_Integration extends MC4WP_Integration {
 	* @param int $user_id
 	* @return boolean
 	*/
-	public function on_multisite_blog_signup( $blog_id, $user_id, $a, $b , $meta = null ) {
+	public function on_multisite_blog_signup( $blog_id, $user_id, $a, $b, $meta = null ) {
 		// was sign-up checkbox checked?
 		if ( ! isset( $meta['_mc4wp_subscribe'] ) || $meta['_mc4wp_subscribe'] !== 1 ) {
 			return false;
@@ -55,7 +55,7 @@ class MC4WP_MultiSite_Integration extends MC4WP_Integration {
 	* @param array $meta
 	* @return boolean
 	*/
-	public function on_multisite_user_signup( $user_id, $password = NULL, $meta = array() ) {
+	public function on_multisite_user_signup( $user_id, $password = null, $meta = array() ) {
 		// abandon if sign-up checkbox was not checked
 		if ( ! isset( $meta['_mc4wp_subscribe'] ) || $meta['_mc4wp_subscribe'] !== 1 ) {
 			return false;
@@ -66,7 +66,7 @@ class MC4WP_MultiSite_Integration extends MC4WP_Integration {
 
 	/**
 	* Add user meta from Multisite sign-ups to store the checkbox value
-	* 
+	*
 	* @param array $meta
 	* @return array
 	*/
@@ -91,7 +91,7 @@ class MC4WP_MultiSite_Integration extends MC4WP_Integration {
 		$merge_vars = array(
 			'NAME' => $user->first_name . ' ' . $user->last_name,
 			'FNAME' => $user->first_name,
-			'LNAME' => $user->last_name
+			'LNAME' => $user->last_name,
 		);
 
 		return $this->subscribe( $email, $merge_vars, 'multisite_registration' );

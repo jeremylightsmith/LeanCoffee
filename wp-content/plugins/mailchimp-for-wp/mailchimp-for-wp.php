@@ -2,16 +2,17 @@
 /*
 Plugin Name: MailChimp for WordPress Lite
 Plugin URI: https://mc4wp.com/
-Description: Lite version of MailChimp for WordPress. Adds various sign-up methods to your website. 
-Version: 2.1.1
+Description: Lite version of MailChimp for WordPress. Adds various sign-up methods to your website.
+Version: 2.2.8
 Author: Danny van Kooten
-Author URI: http://dannyvankooten.com
+Author URI: https://dannyvankooten.com
 Text Domain: mailchimp-for-wp
 Domain Path: /languages
 License: GPL v3
+GitHub Plugin URI: https://github.com/dannyvankooten/mailchimp-for-wordpress
 
 MailChimp for WordPress
-Copyright (C) 2012-2013, Danny van Kooten, hi@dannyvankooten.com
+Copyright (C) 2012-2015, Danny van Kooten, hi@dannyvankooten.com
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -47,7 +48,7 @@ function mc4wp_load_plugin() {
 	}
 
 	// bootstrap the lite plugin
-	define( 'MC4WP_LITE_VERSION', '2.1.1' );
+	define( 'MC4WP_LITE_VERSION', '2.2.8' );
 	define( 'MC4WP_LITE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'MC4WP_LITE_PLUGIN_URL', plugins_url( '/' , __FILE__ ) );
 	define( 'MC4WP_LITE_PLUGIN_FILE', __FILE__ );
@@ -55,15 +56,18 @@ function mc4wp_load_plugin() {
 	require_once MC4WP_LITE_PLUGIN_DIR . 'includes/functions/general.php';
 	require_once MC4WP_LITE_PLUGIN_DIR . 'includes/functions/template.php';
 	require_once MC4WP_LITE_PLUGIN_DIR . 'includes/class-plugin.php';
-	$GLOBALS['mc4wp'] = new MC4WP_Lite();
+
+	// Initialize the plugin and store an instance in the global scope
+	MC4WP_Lite::init();
+	$GLOBALS['mc4wp'] = MC4WP_Lite::instance();
 
 	if( is_admin() && ( false === defined( 'DOING_AJAX' ) || false === DOING_AJAX ) ) {
-		
+
 		// ADMIN
 		require_once MC4WP_LITE_PLUGIN_DIR . 'includes/class-admin.php';
 		new MC4WP_Lite_Admin();
 
-	} 
+	}
 
 	return true;
 }

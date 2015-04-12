@@ -1,7 +1,7 @@
 <?php
 
 // prevent direct file access
-if( ! defined("MC4WP_LITE_VERSION") ) {
+if( ! defined( 'MC4WP_LITE_VERSION' ) ) {
 	header( 'Status: 403 Forbidden' );
 	header( 'HTTP/1.1 403 Forbidden' );
 	exit;
@@ -9,6 +9,9 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 
 class MC4WP_bbPress_Integration extends MC4WP_Integration {
 
+	/**
+	 * @var string
+	 */
 	protected $type = 'bbpress_forms';
 
 	public function __construct() {
@@ -30,15 +33,19 @@ class MC4WP_bbPress_Integration extends MC4WP_Integration {
 	*/
 	public function subscribe_from_bbpress( $anonymous_data, $user_id, $trigger ) {
 
-		if ( $this->checkbox_was_checked === false ) { 
-			return false; 
+		if( $this->is_spam() ) {
+			return false;
+		}
+
+		if ( $this->checkbox_was_checked() === false ) {
+			return false;
 		}
 
 		if ( $anonymous_data ) {
 
 			$email = $anonymous_data['bbp_anonymous_email'];
 			$merge_vars = array(
-				'NAME' => $anonymous_data['bbp_anonymous_name']
+				'NAME' => $anonymous_data['bbp_anonymous_name'],
 			);
 
 		} elseif ( $user_id ) {
@@ -48,7 +55,7 @@ class MC4WP_bbPress_Integration extends MC4WP_Integration {
 			$merge_vars = array(
 				'NAME' => $user_info->first_name . ' ' . $user_info->last_name,
 				'FNAME' => $user_info->first_name,
-				'LNAME' => $user_info->last_name
+				'LNAME' => $user_info->last_name,
 			);
 
 		} else {
